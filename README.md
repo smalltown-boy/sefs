@@ -52,7 +52,7 @@ memory.init_drive();
 
 ### Writing a file
 
-Let's say you have an array of data that you want to record. Для этого необходимо использовать метод ```add_file(char *filename, char *data, uint8_t file_length)```.
+Let's say you have an array of data that you want to record. To do this, you need to use the method ```add_file(char *filename, char *data, uint8_t file_length)```.
 
 Example code:
 ```
