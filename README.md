@@ -99,6 +99,9 @@ memory.delete_file(&datafile)
 
 ## Version history
 
+| По левому краю | По центру | По правому краю |
+| текст | текст | текст |
+
 |---------------------------------------------------------------------------------------------------------------------------------|
 |version 0.0.1| Added functions for formatting EEPROM memory, initializing the file system, as well as writing and reading files. |
 |version 0.0.2| Added a function to delete a file, and fixed a bug in the file reading method.                                    |
