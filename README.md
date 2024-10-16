@@ -6,7 +6,7 @@ Simple EEPROM File System (SEFS) is designed for ATmega series microcontrollers 
 
 ## Adding a library to a project
 
-- Add the sefs files.h and sefs.cpp to the folder with the source files of your project.
+- Add the files ```sefs.h``` and ```sefs.cpp``` to the folder with the source files of your project.
 - The library is connected using the ```#include "sefs.h"``` directive.
 
 ## Setting the parameters of the microcontroller's EEPROM memory (all values in bytes).
