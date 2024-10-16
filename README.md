@@ -86,7 +86,19 @@ memory.read_file(&datafile)
 
 If the file was successfully found and read, all fields of the `file` structure will be filled with data. Otherwise, the method will return an error code (it is omitted in the example).
 
+### Deleting a file
+
+To delete a file, use the method ```delete_file(file *file)```. The transfer of the file name for deletion is carried out in the same way as for the method ```read_file(file *file)```.
+
+Example code:
+```
+file datafile;
+datafile.filename = "file2";
+memory.delete_file(&datafile)
+```
+
 ## Version history
+```version 0.0.2``` - Added a function to delete a file, and fixed a bug in the file reading method.
 ```version 0.0.1``` - Added functions for formatting EEPROM memory, initializing the file system, as well as writing and reading files.
 
 
