@@ -3,6 +3,7 @@
 
 ## Description of the project
 Simple EEPROM File System (SEFS) is designed for ATmega series microcontrollers with built-in EEPROM memory.
+The file system is designed to store small configuration files used in systems with microcontrollers.
 
 ## Adding a library to a project
 
