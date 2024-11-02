@@ -28,6 +28,7 @@ class storage {
 		uint8_t init_drive();
 		uint8_t add_file(char *filename, char *data, uint8_t file_length);
 		uint8_t read_file(file *file);
+		uint8_t delete_file(file *file);
 		
 	private:
 		uint8_t eeprom_write_byte(uint16_t address, uint8_t byte);
@@ -35,8 +36,7 @@ class storage {
 		uint16_t eeprom_check_free_filename_memory();
 		uint16_t eeprom_check_free_data_memory();
 		uint8_t eeprom_write_word(uint16_t address, uint16_t word);
-		uint16_t eeprom_read_word(uint16_t address);
-		
+		uint16_t eeprom_read_word(uint16_t address);	
 	};
 
 

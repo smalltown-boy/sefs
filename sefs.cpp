@@ -187,6 +187,8 @@ uint16_t storage::eeprom_read_word(uint16_t address)
 
 uint8_t storage::read_file(file *file)
 {
+	uint8_t operation_result;
+	
 	char eeprom_dump[FILE_NAME_TABLE_SIZE];
 	char *search_name = file->filename;
 	uint16_t current_pointer = storage::eeprom_read_word(TOTAL_MEMORY_SIZE - 3);
@@ -198,7 +200,8 @@ uint8_t storage::read_file(file *file)
 	
 	for(uint16_t address = 0; address <= FILE_NAME_TABLE_SIZE; address += (FILE_NAME_SIZE + 3))
 	{
-		if(strncmp((char*)&eeprom_dump[address], search_name, FILE_NAME_SIZE) == 0) 
+		if(strncmp((char*)&eeprom_dump[address], search_name, FILE_NAME_SIZE) == 0)
+		{
 			char *additional = &eeprom_dump[address + FILE_NAME_SIZE];
 			file->start_addr = additional[1] << 8 | additional[0];
 			file->file_size = additional[2];
@@ -207,11 +210,24 @@ uint8_t storage::read_file(file *file)
 			{
 				file->data[i] = storage::eeprom_read_byte(read_addr++);
 			}
-			asm("nop");
 		}
 		else
 		{
 			asm("nop");
 		}
+	}
+	return operation_result;
+}
+
+uint8_t storage::delete_file(file *file)
+{
+	uint8_t operation_result;
+	uint16_t address;
+	
+	storage::read_file(file);
+	
+	for(uint8_t i = 0, address = file->start_addr; i < file->file_size; i++, address++)
+	{
+		storage::eeprom_write_byte(address, 0xFF);
 	}
 }
